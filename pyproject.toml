@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "papers"
+version = "0.1.0"
+description = ""
+authors = ["William Shi <33271663+wx02shi@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+ipykernel = "^6.29.3"
+matplotlib = "^3.8.3"
+torch = "^2.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
