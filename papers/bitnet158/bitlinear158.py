@@ -28,5 +28,5 @@ class BitLinear158(nn.Module):
     def quantize_activations(self, x):
         gamma = torch.norm(x, float('inf'))
         xscale = (x - torch.min(x)) * self.Q_b / gamma
-        xq = clip(xscale, self.eps, self.Q_b - self.eps)
+        xq = clip(xscale, -self.Q_b + self.eps, self.Q_b - self.eps)
         return xq
