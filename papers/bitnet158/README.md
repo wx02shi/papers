@@ -15,7 +15,8 @@ $$\gamma=\frac{1}{nm}\sum_{ij}|W_{ij}|$$
 where $\epsilon$ is some small floating point number, to prevent overflow when performing this clipping.
 
 ### Constraining Activations
-With respect to non-linear functions like ReLU, the activations are scaled into the range $[0, Q_b]$, where $Q_b=2^{b-1}$. Typically, $b=8$ (i.e. `int8`).
+With respect to non-linear functions like ReLU, the activations are scaled into the range $[-Q_b, Q_b]$, where $Q_b=2^{b-1}$. Typically, $b=8$ (i.e. `int8`).
+> Note: in the original BitNet, the range was $[0, Q_b]$. Apparently, the correction is more convenient for implementation and system-level optimization, while introducing negligible effects to performance.
 
 $$\tilde x=\text{Clip}\left((x-\eta)\times \frac{Q_b}{\gamma},\epsilon, Q_b-\epsilon\right)$$
 $$\text{Clip}(x,a,b)=\max(a,\min(b,x))$$
