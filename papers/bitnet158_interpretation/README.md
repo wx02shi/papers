@@ -2,6 +2,8 @@
 Whitepaper: [The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits](https://arxiv.org/pdf/2402.17764.pdf)
 
 ## TLDR
+This is my attempt at implementing the paper. A follow-up paper contains the actual implementation for some components.
+
 Essentially replaces all Linear layers with `BitLinear` layers, which contain quantized weights. More specifically, all parameters are in the range $[-1,0,1]$.
 
 This is a rather extreme strand of quantization, developed with quantization-aware training in mind. The whitepaper reports that a LLaMA-like model with `BitLinear` layers has competitive performance, whilst consuming up to 3.32x less memory and having up to 2.4x lower latency. 
